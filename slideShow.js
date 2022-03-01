@@ -17,8 +17,8 @@ const images= [
 
 ]
 
-// onde as imagens estão aparecendo.
 const containerItems  = document.querySelector('#container-items');
+
 
 
 const loadImages = (images,container) => {
@@ -47,3 +47,28 @@ const loadImages = (images,container) => {
 
 
 loadImages(images,containerItems);
+
+let items = document.querySelectorAll('.item');
+
+
+const previuos = () => {
+
+    containerItems.appendChild(items[0]);
+    items = document.querySelectorAll('.item');
+    
+
+}
+
+const next = () => {
+    
+   const lastItem = items[items.length-1];
+
+    containerItems.insertBefore(lastItem,items[0]);
+    items = document.querySelectorAll('.item');
+    
+
+}
+
+
+document.querySelector('#previous').addEventListener('click', next);
+document.querySelector('#next').addEventListener('click', previuos);
